@@ -1,3 +1,5 @@
+/* ===================================================== NIVEL I ===================================================== */
+
 // 1) .-
 
 // Dada una matriz cuadrada, calcule la diferencia absoluta entre las sumas de sus diagonales.
@@ -166,3 +168,54 @@ function timeConversion(s) {
       return Number(hour)+12+minSeg;
      }
 }
+
+/* ===================================================== NIVEL II ===================================================== */
+
+// 7) .- Apple and Orange
+// La casa de Sam tiene un manzano y un naranjo que dan abundante fruta. Usando la información dada a continuación, determine la cantidad de manzanas y naranjas que caen en la casa de Sam.
+
+// El manzano está a la izquierda de la casa y el naranjo está a su derecha.
+// Suponga que los árboles están ubicados en un solo punto, donde el manzano está en el punto a, y el naranjo está en el punto b.
+// Cuando una fruta cae de su árbol, aterriza unidades "d" de distancia desde su árbol de origen a lo largo de la-eje x. *Un valor negativo de "d" significa que la fruta cayó "d" unidades a la izquierda del árbol, y un valor positivo de "d" significa que cae "d" unidades a la derecha del árbol. *
+// Dado el valor de "d" por manzanas "m" y naranjas "n", determine cuántas manzanas y naranjas caerán en la casa de Sam (es decir, en el rango inclusivo [s, t])? 
+
+// Por ejemplo, la casa de Sam está entre s = 7 y t = 10. El manzano se encuentra en a = 4 y la naranja en b = 12. Existen m = 3 manzanas y n = 3 naranjas se tiran manzanas apples=[2, 3, -4] unidades de distancia de, y oranges = [3, -2, -4] unidades de distancia. Sumando la distancia de cada manzana a la posición del árbol, aterrizan en [4+2, 4+3, 4+-4]=[6, 7, 0]. Las naranjas aterrizan en [12+3, 12+-2, 12 +-4]=[15, 10, 8]. Una manzana y dos naranjas aterrizan en el rango inclusivo.entonces imprimimos
+// 1 -------> apples
+// 2 -------> oranges
+
+// s: integer, starting point of Sam's house location.
+// t: integer, ending location of Sam's house location.
+// a: integer, location of the Apple tree.
+// b: integer, location of the Orange tree.
+// apples: integer array, distances at which each apple falls from the tree.
+// oranges: integer array, distances at which each orange falls from the tree.
+
+// Ejemplo
+
+// let apples = [2, 3, -4];
+// let oranges = [3, -2, -4];
+// let a = 4;
+// let b = 12;
+// let s = 7;
+// let t = 10;
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // Write your code here
+    let applesCount = 0;
+    let orangesCount = 0;
+
+     for (let i = 0; i <= apples.length;i++) {
+         if (apples[i]+a >= s && apples[i]+a <= t) {
+         applesCount += 1;
+        }
+     }
+     for (let i = 0; i <= oranges.length;i++) {
+        if (oranges[i]+b >= s && oranges[i]+b <= t) {
+         orangesCount += 1;
+        }
+     }  
+     console.log(applesCount);
+     console.log(orangesCount);
+}
+
+countApplesAndOranges(s, t, a, b, apples, oranges)
