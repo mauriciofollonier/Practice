@@ -218,4 +218,41 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
      console.log(orangesCount);
 }
 
-countApplesAndOranges(s, t, a, b, apples, oranges)
+// 8) .-
+// Estás coreografiando un espectáculo de circo con varios animales. Para un acto, se le dan dos canguros en una recta numérica listos para saltar en la dirección positiva (es decir, hacia el infinito positivo).
+
+// El primer canguro comienza en la ubicación x1 y se mueve a una velocidad de v1 metros por salto.
+// El segundo canguro comienza en la ubicación x2 y se mueve a una velocidad de v2 metros por salto.
+// Tienes que encontrar una manera de llevar a ambos canguros al mismo lugar al mismo tiempo como parte del espectáculo. Si es posible, devuelve YES, de lo contrario, devuelve NO.
+// Después de un salto, ambos están en x = 3 
+// (x1 + v1) = 3    ||  (x2 + v2) = 3 por lo que la respuesta es "YES".
+// let x1 = 0; 
+// let v1 = 3;           
+// let x2 = 4;        
+// let v2 = 2; 
+
+// Ejemplos
+
+// let x1 = 0;        let x1 = 0;
+// let v1 = 3;        let v1 = 2;        
+// let x2 = 4;        let x2 = 5;
+// let v2 = 2;        let v2 = 3;
+
+//             Output
+// "YES"                "NO"
+
+
+function kangaroo(x1, v1, x2, v2) {
+  // Write your code here
+let jumps = Math.abs((x2 - x1) / (v2 - v1));
+let resto = Math.abs(x2 - x1) % (v2 - v1);
+
+console.log("JUMPS",jumps)
+console.log("RESTO",resto)
+  if(resto != 0 || (x1<x2&&v1<v2)) {
+    return "NO";
+  }
+  else if(resto === 0) {
+    return "YES";
+  }
+}
