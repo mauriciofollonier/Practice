@@ -226,6 +226,7 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 // Tienes que encontrar una manera de llevar a ambos canguros al mismo lugar al mismo tiempo como parte del espectáculo. Si es posible, devuelve YES, de lo contrario, devuelve NO.
 // Después de un salto, ambos están en x = 3 
 // (x1 + v1) = 3    ||  (x2 + v2) = 3 por lo que la respuesta es "YES".
+
 // let x1 = 0; 
 // let v1 = 3;           
 // let x2 = 4;        
@@ -255,4 +256,28 @@ console.log("RESTO",resto)
   else if(resto === 0) {
     return "YES";
   }
+}
+
+// 9) .-
+// Given an array of integers, keep a total score based on the following:
+// - Add 1 point for every even number (numero par) in the array.
+// - Add 3 points for every odd number (numero impar) in the array, except for the number '5'.
+// - Add 5 points every time the number '5' appear in the array.
+// - Number '0' considered even (par).
+// Examples
+// Input: [ 1, 2, 3, 4, 6]; 
+// Output: 13
+// Input: [ 0, 1, 2, 3, 4, 6]; 
+// Output: 14
+// Input: [ 5, 5, 5]; 
+// Output: 15
+export function findTotal( numbers ) {
+  //Insert your code here 
+  let total = 0;
+  numbers.forEach( number => {
+    if (number % 2 !== 0 && number !== 5) total+= 3;
+    else if (number % 2 === 0 || number === 0) total += 1;
+    else if (number === 5) total += 5;
+  })
+  return total;
 }
