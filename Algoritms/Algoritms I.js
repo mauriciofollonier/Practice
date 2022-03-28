@@ -281,3 +281,136 @@ export function findTotal( numbers ) {
   })
   return total;
 }
+
+// 10) 
+//     a).- Fibonacci
+function nFibonacci() {
+  // Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
+let fibonacci = [0, 1];
+  for (let i = 2; i < 11; i++) {
+    fibonacci.push(fibonacci[i-1] + fibonacci[i-2]);
+    //console.log(fibonacci)
+  }
+  return fibonacci;
+}
+//     b).- Tribonacci
+/* Create a function implementing the Tribonacci sequence. This is a variation on the Fibonacci sequence, in wich every next number is found by adding up the two preceding numbers. The tribonacci sequence is similar, but instead of starting with two predetermined numbers, the sequence starts with three predetermined numbers and each subsequent number is the sum of the three preceding numbers
+The function has two parameters:
+ - A signature array of 3 elements cointaining the predetermined starting numbers of the tribonacci sequence.
+ - A non-negative integer of the first "n" elements that the functions should return.
+ 
+ If n == 0, return 0
+ 
+ Examples 
+ * tribonacci([ 0, 0, 1], 9) // should == [ 0, 0, 1, 1, 2, 4, 7, 13, 24]
+ * tribonacci([ 1, 1, 1], 5) // should == [ 1, 1, 3, 5]
+ * tribonacci([ 1, 2, 3], 2) // should == [ 1, 2]
+ 
+ */
+ function tribonacci( signature, n ) {
+  //Insert your code here
+  if (n === 0) return 0;
+  else if (n < signature.length) return signature.slice(0,n);
+  else if (n >= signature.length) {
+    for (let i = 3; i < n; i++) {
+      signature.push(signature[i-1] + signature[i-2] + signature[i-3]);
+  }
+  return signature;
+  }
+}
+
+// 11).- Debugging
+/* A stack is a data structure that has some parallels with an array. Both have methods that include "push()" and "pop()". A stack, however, has the special LIFO property (Last In First Out). Think of it as stack of dishes. To take dishes off the stack, you grab the one on top and remove it.7
+ - The following are common stack operations:
+   1. push: pushes a new element on top of a stack;
+   2. pop: removes the top element from the stack;
+   3. peek: takes the top element from the stack, but, unlike pop, doesn't remove the element;
+   4. swap: swaps the position of the top two elements
+   
+ - The given script performs these stack operations. The function is called "stack()" and contains two parameters:
+   1. stackOperation: this parameter prescribes the stack operation, such as push and pop.
+   2. stackvalue: this parameter prescribes the item to be pushed on top of a stack. This parameter is only useful when we want to push an item on the stack.
+   
+   
+  ** The stack function should return an array (even if there's just one position to return).
+   Our operations are supposed to manipulate this stack based on the "stackOperation" parameter. However, the initial code doesn't function as described above. YOUR TASK IS TO INVESTIGATE THE CODE AND FIX THE BUGS*/
+function stack( stackOperation, stackValue ) {
+  var stackHolder = {
+    count: 4,
+    storage : [
+      1,
+      '{id: 1,value: "obj"}',
+      "stringHolder",
+      46
+    ]
+    };
+    
+    var push = function(value) {
+    stackHolder.storage[ stackHolder.storage.length] = value;
+    stackHolder.count += 1;  
+    return stackHolder.storage;
+    }
+    // push('Martin')
+    // console.log(stackHolder)
+    // console.log(push('Martin'))
+    // console.log(stackHolder.storage[stackHolder.count])
+    
+    var pop = function() {
+      if (stackHolder.count === 0) {
+      return [];
+      }
+      var poppedItem = stackHolder.storage[stackHolder.storage.length-1];
+      
+     // console.log(stackHolder)
+     // console.log(poppedItem)
+      
+     stackHolder.storage.splice(stackHolder.storage.length-1);
+     stackHolder.count -= 1;
+      return poppedItem;
+    }
+    //pop()
+    //console.log(stackHolder)
+    
+    var peek = function() {
+    let itemPeek = stackHolder.storage[stackHolder.storage.length-1];
+    //console.log(itemPeek)
+      return itemPeek;
+    }
+    //peek()
+    //console.log(stackHolder)
+  
+    var swap = function() {
+    let temp0 = null;
+    let temp1 = null;
+     temp0 = stackHolder.storage[stackHolder.storage.length-1];
+     temp1 = stackHolder.storage[stackHolder.storage.length-2];
+     stackHolder.storage[stackHolder.storage.length-1] = temp1;
+     stackHolder.storage[stackHolder.storage.length-2] = temp0;
+    return stackHolder.storage;
+    }
+    //swap()
+    //console.log(stackHolder)
+    
+    switch(stackOperation) {
+    case 'push':
+      push(stackValue);
+    break;
+    case 'pop':
+      return pop();
+    break;
+    case 'swap':
+      swap();
+    break;
+    case 'peek':
+     peek();
+    return peek;
+    break;
+    default:
+      return stackHolder.storage;
+    }
+    return stackHolder.storage;
+  //console.log(stackHolder)
+}
+
+// 12).- 
+// Funcion que recibe una cadena (string) que puede contener letras, numeros, simbolos o espacios vacios, devolver el caracter que mas se repite y el N° de veces que se repite
