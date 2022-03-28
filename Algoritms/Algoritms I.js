@@ -168,10 +168,30 @@ function timeConversion(s) {
       return Number(hour)+12+minSeg;
      }
 }
+// 7).-
+// Funcion que recibe una cadena (string) que puede contener letras, numeros, simbolos o espacios vacios, devolver el caracter que mas se repite y el N° de veces que se repite.
+function countingAppear (string) {
+  let arrStr = string.split('');
+  let count = {};
+  //let appear = [];
+  for (let i = 0; i < arrStr.length; i++) {
+    count[arrStr[i]] = 0;
+    for (let m = arrStr.length-1; m >= 0; m--) {  
+    	if (arrStr[i] == arrStr[m]) {
+      	count[arrStr[i]] += 1;
+      }  
+    }  
+  }
+  // for (let x in count) {
+  //    appear.push(count[x])
+  // }
+  //console.log(count)
+  return count;
+}
 
 /* ===================================================== NIVEL II ===================================================== */
 
-// 7) .- Apple and Orange
+// 2) .- Apple and Orange
 // La casa de Sam tiene un manzano y un naranjo que dan abundante fruta. Usando la información dada a continuación, determine la cantidad de manzanas y naranjas que caen en la casa de Sam.
 
 // El manzano está a la izquierda de la casa y el naranjo está a su derecha.
@@ -218,7 +238,7 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
      console.log(orangesCount);
 }
 
-// 8) .-
+// 3) .-
 // Estás coreografiando un espectáculo de circo con varios animales. Para un acto, se le dan dos canguros en una recta numérica listos para saltar en la dirección positiva (es decir, hacia el infinito positivo).
 
 // El primer canguro comienza en la ubicación x1 y se mueve a una velocidad de v1 metros por salto.
@@ -258,7 +278,7 @@ console.log("RESTO",resto)
   }
 }
 
-// 9) .-
+// 4) .-
 // Given an array of integers, keep a total score based on the following:
 // - Add 1 point for every even number (numero par) in the array.
 // - Add 3 points for every odd number (numero impar) in the array, except for the number '5'.
@@ -282,7 +302,7 @@ export function findTotal( numbers ) {
   return total;
 }
 
-// 10) 
+// 5).-
 //     a).- Fibonacci
 function nFibonacci() {
   // Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
@@ -319,7 +339,7 @@ The function has two parameters:
   }
 }
 
-// 11).- Debugging
+// 6).- Debugging
 /* A stack is a data structure that has some parallels with an array. Both have methods that include "push()" and "pop()". A stack, however, has the special LIFO property (Last In First Out). Think of it as stack of dishes. To take dishes off the stack, you grab the one on top and remove it.7
  - The following are common stack operations:
    1. push: pushes a new element on top of a stack;
@@ -412,5 +432,4 @@ function stack( stackOperation, stackValue ) {
   //console.log(stackHolder)
 }
 
-// 12).- 
-// Funcion que recibe una cadena (string) que puede contener letras, numeros, simbolos o espacios vacios, devolver el caracter que mas se repite y el N° de veces que se repite
+// 7).- 
